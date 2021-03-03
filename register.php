@@ -128,7 +128,7 @@ if (isset($_REQUEST['signup'])) {
 
                 // echo "<script> alert('Enter the token to verify your email'); </script>";
 
-                $_SESSION['display'] = "false";
+                // $_SESSION['display'] = "false";
                 $_SESSION['msg'] = $msg;
                 $_SESSION['token'] = $token;
                 echo "<script> location.href='register.php'; </script>";
@@ -175,7 +175,7 @@ if (isset($_REQUEST['signup'])) {
                 <p class="leading-relaxed mt-4">Almost 250+ courses to offer in different domains</p>
             </div>
             <?php
-            if (!isset($_SESSION['display'])) {
+            if (!isset($_SESSION['email'])) {
             ?>
                 <form method="POST" class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
                     <h2 class="text-gray-900 text-2xl font-medium title-font mb-5 text-center"><strong>Sign Up</strong></h2>
@@ -207,7 +207,7 @@ if (isset($_REQUEST['signup'])) {
                 </form>
             <?php } ?>
             <?php
-            if (isset($_SESSION['display'])) {
+            if (isset($_SESSION['email'])) {
             ?>
 
                 <form method="POST" class="text-xs text-gray-600 py-24">

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -38,7 +38,7 @@ if (isset($_REQUEST['login'])) {
                     // for checking active session
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $password;
-                    $_SESSION['display'] = "true";
+                    $_SESSION['status'] = "Active";
 
 
 

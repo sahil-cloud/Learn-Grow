@@ -146,7 +146,7 @@ include('links.php');
                     </li>
                     </li>
                     <?php
-                    if (isset($_SESSION['email']) && $_SESSION['display'] == 'true'){
+                    if (isset($_SESSION['email']) && isset($_SESSION['status'])){
                         ?>
                     <li class="nav-item">
                         <a class="nav-link " href="#">My Courses</a>
@@ -159,7 +159,7 @@ include('links.php');
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <?php
-                    if (isset($_SESSION['email']) && $_SESSION['display'] == 'true') {
+                    if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
                     ?>
                         <a href="logout.php" class="btn btn-danger btn-md m-1" style="border-radius: 12px;"><strong>Logout</strong></a>
 
@@ -197,14 +197,14 @@ include('links.php');
                         <hr>
                         <p class="leading-relaxed mb-4">Build skills with courses and certificates online from world class profesionals</p>
                         <?php
-                        if (!isset($_SESSION['email'])) {
+                        if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
                         ?>
+<a href="#" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>My Courses</strong></a>
 
-                            <a href="register.php" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>Join for Free</strong></a>
-                        <?php
+<?php
                         } else {
-                        ?>
-                            <a href="#" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>My Courses</strong></a>
+                            ?>
+                            <a href="register.php" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>Join for Free</strong></a>
 
 
                         <?php
