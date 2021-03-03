@@ -1,5 +1,10 @@
 <?php
 include('links.php');
+include('dbcon.php');
+session_start();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +26,10 @@ include('links.php');
     <?php
     include('first.php');
     navbar();
+
+
+
+
     ?>
     <!-- Popular courses -->
     <!-- <section class="text-gray-600 body-font">
@@ -90,15 +99,47 @@ include('links.php');
             <div class="container">
                 <div class="owl-carousel owl-theme mt-3 mb-2">
 
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <?php
+                    $sql = "SELECT * FROM courses where category = 'computer' ";
+                    $result = $conn->query($sql);
 
-                        </div>
-                    </div>
-                   
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $course_id = $row['courseid'];
+                    ?>
+
+
+                            <div class="item" style="width: 14rem; ">
+                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
+                                    <p class="card-text"><?php echo $row['description'] ?></p>
+                                    <hr>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6">
+
+
+                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                            </div>
+                                            <div class="col-4 offset-2">
+
+                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+
+
 
 
                 </div>
@@ -120,17 +161,46 @@ include('links.php');
             <div class="container">
                 <div class="owl-carousel owl-theme mt-3 mb-2">
 
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <?php
+                    $sql = "SELECT * FROM courses where category = 'business' ";
+                    $result = $conn->query($sql);
 
-                        </div>
-                    </div>
-                   
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $course_id = $row['courseid'];
+                    ?>
 
 
+                            <div class="item" style="width: 14rem; ">
+                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
+                                    <p class="card-text"><?php echo $row['description'] ?></p>
+                                    <hr>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6">
+
+
+                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                            </div>
+                                            <div class="col-4 offset-2">
+
+                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
             </div>
@@ -149,17 +219,45 @@ include('links.php');
             <div class="container">
                 <div class="owl-carousel owl-theme mt-3 mb-2">
 
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <?php
+                    $sql = "SELECT * FROM courses where category = 'cooking' ";
+                    $result = $conn->query($sql);
 
-                        </div>
-                    </div>
-                  
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $course_id = $row['courseid'];
+                    ?>
 
 
+                            <div class="item" style="width: 14rem; ">
+                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
+                                    <p class="card-text"><?php echo $row['description'] ?></p>
+                                    <hr>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6">
+
+
+                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                            </div>
+                                            <div class="col-4 offset-2">
+                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
             </div>
@@ -181,17 +279,46 @@ include('links.php');
             <div class="container">
                 <div class="owl-carousel owl-theme mt-3 mb-2">
 
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <?php
+                    $sql = "SELECT * FROM courses where category = 'personality' ";
+                    $result = $conn->query($sql);
 
-                        </div>
-                    </div>
-                  
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $course_id = $row['courseid'];
+                    ?>
 
 
+                            <div class="item" style="width: 14rem; ">
+                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
+                                    <p class="card-text"><?php echo $row['description'] ?></p>
+                                    <hr>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6">
+
+
+                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                            </div>
+                                            <div class="col-4 offset-2">
+
+                                                <a href="coursedetails.php?course_id='<?php echo $row['courseid'] ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
             </div>

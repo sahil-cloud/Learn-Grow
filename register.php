@@ -1,4 +1,5 @@
 <?php
+include('dbcon.php');
 include('first.php');
 session_start();
 
@@ -14,6 +15,7 @@ if (isset($_REQUEST['tokens'])) {
     $name = $_SESSION['name'];
     $phone = $_SESSION['phone'];
     $password = $_SESSION['password'];
+    // $_SESSION['display'] = false;
 
     // hashing password
     $hashp = password_hash($password, PASSWORD_DEFAULT);
@@ -24,7 +26,7 @@ if (isset($_REQUEST['tokens'])) {
         $res2 = $conn->query($sql);
 
         if ($res2) {
-            $_SESSION['display'] = 'false';
+            // $_SESSION['display'] = 'false';
             $_SESSION['status'] = "active";
             echo "<script> alert('verified successfully! Login Now'); </script>";
             session_unset();
@@ -69,6 +71,7 @@ if (isset($_REQUEST['signup'])) {
         $_SESSION['password'] = $password;
         $_SESSION['email'] = $email;
         $_SESSION['phone'] = $phone;
+        // $_SESSION['display'] = 'true';
 
         // token wala function
         function getToken($length)
@@ -125,7 +128,7 @@ if (isset($_REQUEST['signup'])) {
 
                 // echo "<script> alert('Enter the token to verify your email'); </script>";
 
-                $_SESSION['display'] = 'true';
+                $_SESSION['display'] = "false";
                 $_SESSION['msg'] = $msg;
                 $_SESSION['token'] = $token;
                 echo "<script> location.href='register.php'; </script>";

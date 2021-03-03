@@ -38,7 +38,7 @@ if (isset($_REQUEST['login'])) {
                     // for checking active session
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $password;
-                    // $_SESSION['status'] = "active";
+                    $_SESSION['display'] = "true";
 
 
 

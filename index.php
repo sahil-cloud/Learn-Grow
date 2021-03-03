@@ -2,6 +2,7 @@
 include('dbcon.php');
 include('first.php');
 include('links.php');
+// session_start();
 
     use PHPMailer\PHPMailer\PHPMailer;
 

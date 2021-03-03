@@ -146,7 +146,7 @@ include('links.php');
                     </li>
                     </li>
                     <?php
-                    if (isset($_SESSION['email'])){
+                    if (isset($_SESSION['email']) && $_SESSION['display'] == 'true'){
                         ?>
                     <li class="nav-item">
                         <a class="nav-link " href="#">My Courses</a>
@@ -159,7 +159,7 @@ include('links.php');
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <?php
-                    if (isset($_SESSION['email'])) {
+                    if (isset($_SESSION['email']) && $_SESSION['display'] == 'true') {
                     ?>
                         <a href="logout.php" class="btn btn-danger btn-md m-1" style="border-radius: 12px;"><strong>Logout</strong></a>
 
@@ -340,6 +340,7 @@ include('links.php');
     // feedback
     function feed()
     {
+        include('dbcon.php');
     ?>
         <h1 class="text-gray-700 text-4xl title-font font-medium mt-5 mb-4 text-center">Success stories from our students</h1>
         <div class="flex mt-6 justify-center">
@@ -348,22 +349,29 @@ include('links.php');
         <div class="container">
             <div class="owl-carousel owl-theme mt-3 mb-2">
 
-                <div class="item" style="width: 18rem; ">
-                    <img class="card-img-top mt-2" style="border-radius: 10rem !important; width:8rem;margin:auto" src="images/img1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <?php
+                $sql = "SELECT * FROM feedback";
+                $result = $conn->query($sql);
+                
+                if($result->num_rows >0) {
+                    while($row = $result->fetch_assoc()){
+                        ?>
 
-                    </div>
-                </div>
-                <div class="item" style="width: 18rem; ">
-                    <img class="card-img-top mt-2" style="border-radius: 10rem !important; width:8rem;margin:auto" src="images/img1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="item card" style="width: 18rem; ">
+    <img class="card-img-top mt-2" style="border-radius: 10rem !important; width:8rem;margin:auto" src="<?php echo $row['image']; ?>" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title"><strong><?php echo $row['name']; ?></strong></h5>
+        <p class="card-title" style="color: lightslategray;"><?php echo $row['email'];?></p>
+        <p class="card-text"><?php echo $row['feed'];?></p>
 
-                    </div>
-                </div>
+    </div>
+</div>
+
+                        <?php
+                    }
+                }
+            ?>
+
 
             </div>
 
