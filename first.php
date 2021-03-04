@@ -120,6 +120,7 @@ include('links.php');
     <?php
     function navbar()
     {
+    
     ?>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: white; box-shadow: 5px 5px 5px lightgray;">
             <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>Learn$Grow |</strong></a>
@@ -168,7 +169,7 @@ include('links.php');
                     } else {
                     ?>
                         <a href="#" class="btn btn-primary btn-md m-1" style="border-radius: 12px;" data-toggle="modal" data-target="#exampleModalCenter"><strong>Login</strong></a>
-                        <a href="#" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>Admin</strong></a>
+                        <a href="Adminarea/adminlogin.php" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>Admin</strong></a>
 
                     <?php
                     }

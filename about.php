@@ -1,6 +1,8 @@
 <?php
 include('links.php');
 include('first.php');
+    include('login.php');
+
 ?>
 
 <!DOCTYPE html>

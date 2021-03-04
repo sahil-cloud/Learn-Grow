@@ -1,9 +1,9 @@
 <?php
-include('../dbcon.php');
-session_start();
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
+include('../dbcon.php');
+session_start();
 
 // following files need to be included
 require_once("./lib/config_paytm.php");
@@ -38,12 +38,12 @@ if($isValidChecksum == "TRUE") {
 			$sql = "INSERT INTO courseorder(order_id,stu_email,course_id,status,respmsg,amount,order_date) VALUES ('$order_id'
 			,'$stu_email','$course_id','$status','$respmsg','$amount','$date')";
 
-			if($conn->query($sql) == TRUE){
-				echo "Redirecting to My profile..";
-				echo "<script> setTimeout(() => {
-					window.location.href = '../mycourses.php';
-				},1500); </script>";
-			}
+			// if($conn->query($sql) == TRUE){
+			// 	echo "Redirecting to My profile..";
+			// 	echo "<script> setTimeout(() => {
+			// 		window.location.href = '../mycourses.php';
+			// 	},1500); </script>";
+			// }
 
 		}
 	}

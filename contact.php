@@ -2,6 +2,7 @@
 include('links.php');
 include('first.php');
 include('dbcon.php');
+include('login.php');
 
 if (isset($_REQUEST['contact'])){
     $name = $_REQUEST['name'];
