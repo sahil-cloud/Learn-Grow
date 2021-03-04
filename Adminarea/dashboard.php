@@ -2,7 +2,9 @@
 include('../dbcon.php');
 include('../links.php');
 include('basic.php');
-session_start();
+
+
+if(isset($_SESSION['adminemail'])){
 
 $email = $_SESSION['adminemail'];
 
@@ -116,3 +118,13 @@ $no_of_admins = $result3->num_rows;
 </body>
 
 </html>
+
+<?php
+}else{
+    ?>
+        <script>
+            location.href = 'adminlogin.php';
+        </script>
+    <?php
+}
+?>

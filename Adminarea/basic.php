@@ -1,5 +1,7 @@
 <?php
 include('../links.php');
+include('../dbcon.php');
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +37,13 @@ include('../links.php');
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: white; box-shadow: 5px 5px 5px lightgray;">
             <a class="navbar-brand" href="../index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>Learn$Grow |</strong></a>
+            <?php
+            if(isset($_SESSION['adminemail'])){ 
+            ?>
             <a class="navbar-brand" href="dashboard.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>Admin</strong></a>
-            
+            <?php
+            }
+            ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

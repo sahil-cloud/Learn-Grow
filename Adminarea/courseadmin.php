@@ -2,13 +2,98 @@
 include('../dbcon.php');
 include('../links.php');
 include('basic.php');
-session_start();
+// session_start();
+
+$insert = false;
+$update = false;
+$delete = false;
 
 //for courses
 $sql1 = "select * from courses";
 $result1 = $conn->query($sql1);
 
 
+if (isset($_GET['delete'])) {
+    $sno = $_GET['delete'];
+    $delete = true;
+    $sql = "DELETE FROM courses WHERE courseid = '$sno' ";
+    // $result = mysqli_query($conn, $sql);
+    $result = $conn->query($sql);
+
+    if ($result) {
+?>
+        <script>
+            location.href = 'courseadmin.php';
+        </script>
+        <?php
+    }
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['snoEdit'])) {
+        // Update the record
+        $sno = $_POST["snoEdit"];
+        $title = $_POST["titleEdit"];
+        $description = $_POST["descriptionEdit"];
+
+        // Sql query to be executed
+        $sql = "UPDATE courses SET name = '$title' , rate = '$description' WHERE courseid = '$sno' ";
+        $result1 = $conn->query($sql);
+        if ($result1) {
+            $update = true;
+        ?>
+            <script>
+                location.href = 'courseadmin.php';
+            </script>
+            <?php
+        } else {
+            echo "We could not update the record successfully";
+        }
+    } else {
+        $coursename = $_POST["title"];
+        $courseid = $_POST["id"];
+        $coursedesc = $_POST["description"];
+        $courseamount = $_POST["amount"];
+        $coursecategory = $_POST["category"];
+        $courseimage = $_FILES["courseimage"];
+
+        // print_r($courseimage);
+
+        $imgname = $courseimage['name'];
+        $imgerror = $courseimage['error'];
+        $imgtmp = $courseimage['tmp_name'];
+
+        // exploding extension
+        $imgtxt = explode('.', $imgname);
+        $imgcheck = strtolower(end($imgtxt));
+
+        //checking array
+        $imgextentions = array('png', 'jpg', 'jpeg');
+
+        if (in_array($imgcheck, $imgextentions)) {
+
+            // $imgdest = '../img/' . $imgname;
+            $imgdest1 = 'images/courses/' . $imgname;
+            $imgdest = 'Adminarea/' . $imgdest1;
+            move_uploaded_file($imgtmp, $imgdest1);
+            // print_r($imgdest1);
+
+            $sql = "INSERT INTO courses VALUES ('$coursename', '$courseid','$imgdest','$courseamount','$coursedesc','$coursecategory')";
+            $result2 = $conn->query($sql);
+
+
+            if ($result2) {
+                $insert = true;
+            ?>
+                <script>
+                    location.href = 'courseadmin.php';
+                </script>
+<?php
+            } else {
+                echo "The record was not inserted successfully because of this error ---> " . mysqli_error($conn);
+            }
+        }
+    }
+}
 
 ?>
 
@@ -19,6 +104,7 @@ $result1 = $conn->query($sql1);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
     <title>Course Details</title>
 </head>
 
@@ -26,6 +112,101 @@ $result1 = $conn->query($sql1);
     <?php
     adminnavbar();
     ?>
+
+    <?php
+    if ($insert) {
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+    <strong>Success!</strong> Your car has been inserted successfully
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span aria-hidden='true'>×</span>
+    </button>
+  </div>";
+    }
+    ?>
+    <?php
+    if ($delete) {
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+    <strong>Success!</strong> Your car has been deleted successfully
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span aria-hidden='true'>×</span>
+    </button>
+  </div>";
+    }
+    ?>
+    <?php
+    if ($update) {
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+    <strong>Success!</strong> Your car has been updated successfully
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span aria-hidden='true'>×</span>
+    </button>
+  </div>";
+    }
+    ?>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit this Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="courseadmin.php" method="POST">
+                    <div class="modal-body">
+                        <input type="hidden" name="snoEdit" id="snoEdit">
+                        <div class="form-group">
+                            <label for="title">Name</label>
+                            <input type="text" class="form-control" id="titleEdit" name="titleEdit" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="desc">Amount</label>
+                            <input class="form-control" id="descriptionEdit" name="descriptionEdit"></input>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-block mr-auto">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-4 py-24">
+        <h1 class="text-center"><strong>Add a Course</strong></h1>
+        <form action="courseadmin.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Course Title</label>
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="id">Course Id</label>
+                <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="text" class="form-control" id="amount" name="amount" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" class="form-control" id="category" name="category" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Course Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="courseimage">Course Image</label>
+                <input class="form-control" id="courseimage" name="courseimage" type="file">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+    </div>
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
@@ -36,7 +217,7 @@ $result1 = $conn->query($sql1);
             </div>
 
 
-            <table class="table table-striped">
+            <table class="table table-striped" id='myTable'>
                 <thead>
                     <tr>
                         <th scope="col">S.No.</th>
@@ -44,16 +225,18 @@ $result1 = $conn->query($sql1);
                         <th scope="col">Amount</th>
                         <th scope="col">Description</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Action</th>
+
                     </tr>
                 </thead>
-        
+
                 <?php
                 $a = 0;
                 while ($courses = $result1->fetch_assoc()) {
                     $a++;
                 ?>
-        
-        
+
+
                     <tbody>
                         <tr>
                             <th scope="row"><?php echo $a; ?></th>
@@ -61,20 +244,70 @@ $result1 = $conn->query($sql1);
                             <td><?php echo $courses['rate']; ?></td>
                             <td><?php echo $courses['description']; ?></td>
                             <td><?php echo $courses['category']; ?></td>
+                            <td> <button class='edit btn btn-sm btn-primary' id=<?php echo $courses['courseid']; ?>>Edit</button> <button class='delete btn btn-sm btn-primary' id=<?php echo $courses['courseid']; ?>>Delete</button> </td>
+
                         </tr>
                     </tbody>
                 <?php
-        
+
                 }
                 ?>
-        
+
             </table>
+
+            <div class="container my-4">
+
+
+            </div>
+            <hr>
+
         </div>
 
         </div>
     </section>
 
 
+    <script src=" ../bootstrap/js/jquery.vide.js"></script>
+    <script src="../bootstrap/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+
+        });
+    </script>
+    <script>
+        edits = document.getElementsByClassName('edit');
+        Array.from(edits).forEach((element) => {
+            element.addEventListener("click", (e) => {
+                console.log("edit ");
+                tr = e.target.parentNode.parentNode;
+                title = tr.getElementsByTagName("td")[0].innerText;
+                description = tr.getElementsByTagName("td")[1].innerText;
+                console.log(title, description);
+                titleEdit.value = title;
+                descriptionEdit.value = description;
+                snoEdit.value = e.target.id;
+                console.log(e.target.id)
+                $('#editModal').modal('toggle');
+            })
+        })
+
+        deletes = document.getElementsByClassName('delete');
+        Array.from(deletes).forEach((element) => {
+            element.addEventListener("click", (e) => {
+                console.log(e.target.id);
+                sno = e.target.id;
+
+                if (confirm("Are you sure you want to delete this note!")) {
+                    // console.log("yes");
+                    window.location = `courseadmin.php?delete=${sno}`;
+                    // TODO: Create a form and use post request to submit a form
+                } else {
+                    // console.log("no");
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,8 @@ include('../links.php');
 include('basic.php');
 session_start();
 
+
+
 if(isset($_REQUEST['adminlogin'])){
     if ($_REQUEST['password'] == "" || $_REQUEST['email'] == ""){
         ?>
@@ -28,10 +30,6 @@ if(isset($_REQUEST['adminlogin'])){
             <?php
         }
     }
-}else{
-    ?>
-    alert('error occured');
-    <?php
 }
 
 
@@ -114,3 +112,4 @@ if(isset($_REQUEST['adminlogin'])){
 </body>
 
 </html>
+
