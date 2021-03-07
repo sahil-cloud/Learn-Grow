@@ -24,7 +24,7 @@ session_start();
 
     <!-- Default Theme -->
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <title>Base</title>
+    <!-- <title>Base</title> -->
 
 </head>
 
@@ -71,7 +71,7 @@ session_start();
 
                         </li>
                         <li class="nav-item ">
-                            <a href="#" class="nav-link"><i class="fas fa-wallet mr-2"></i>Payment Status</a>
+                            <a href="paymentadmin.php" class="nav-link"><i class="fas fa-wallet mr-2"></i>Payment Status</a>
 
                         </li>
                         <li class="nav-item ">

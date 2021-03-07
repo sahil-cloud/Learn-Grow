@@ -17,6 +17,22 @@ if (!isset($_SESSION['email'])) {
     header("Cache-Control: no-cache");
     header("Expires: 0");
     $email = $_SESSION['email'];
+    // $courseid = $_SESSION['courseid'];
+
+    if(isset($_GET['courseid'])){
+        $courseid = $_GET['courseid'];
+        $cc = trim($courseid,"'");
+        // echo $cc;
+    }
+
+    if (isset($_REQUEST['id'])) {
+    $id = $_REQUEST['id'];
+    } 
+
+    // random order id
+    $orderi = "ORDS" . rand(1000, 9999999) . "ID" . rand(1000,999999) ;
+   
+    
 
 ?>
 
@@ -39,7 +55,7 @@ if (!isset($_SESSION['email'])) {
 
         <pre>
 	</pre>
-        <form method="post" action="PaytmKit/pgRedirect.php">
+        <form method="post" action="PaytmKit/pgRedirect.php?email=<?php echo $email; ?>&courseid=<?php echo $cc; ?>">
             <table class="table" border="1">
                 <thead class="thead-light">
                     <tr>
@@ -52,7 +68,7 @@ if (!isset($_SESSION['email'])) {
                     <tr>
                         <td>1</td>
                         <td><label>ORDER_ID</label></td>
-                        <td><input id=" ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo  "ORDS" . rand(10000, 99999999) ?>">
+                        <td><input id=" ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo $orderi;  ?>">
                         </td>
                     </tr>
                     <tr>
@@ -98,6 +114,7 @@ if (!isset($_SESSION['email'])) {
     </html>
 
 <?php
+
 }
 
 ?>

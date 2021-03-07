@@ -298,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 console.log(e.target.id);
                 sno = e.target.id;
 
-                if (confirm("Are you sure you want to delete this note!")) {
+                if (confirm("Are you sure you want to delete this course!")) {
                     // console.log("yes");
                     window.location = `courseadmin.php?delete=${sno}`;
                     // TODO: Create a form and use post request to submit a form

@@ -2,7 +2,7 @@
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
-include('../dbcon.php');
+include("../dbcon.php");
 session_start();
 
 // following files need to be included
@@ -27,23 +27,30 @@ if($isValidChecksum == "TRUE") {
 		//Process your transaction here as success transaction.
 		//Verify amount & order id received from Payment gateway with your application's order id and amount.
 		if (isset(($_REQUEST['ORDERID'])) && isset($_REQUEST['TXNAMOUNT']) ){
+			if(isset($_GET['email'])){
+				$stu_email = $_GET['email'];
+				$courseid = $_GET['courseid'];
+			}
 			$order_id = $_REQUEST['ORDERID'];
-			$stu_email = $_SESSION['email'];
-			$course_id = $_SESSION['courseid'];
+			// $stu_email = $_SESSION['email'];
+			// $course_id = $_SESSION['idc'];
 			$status = $_REQUEST['STATUS'];
 			$respmsg = $_REQUEST['RESPMSG'];
 			$amount = $_REQUEST['TXNAMOUNT'];
 			$date = $_REQUEST['TXNDATE'];
+			$txid = $_REQUEST['TXNID'];
+			$bankid = $_REQUEST['BANKTXNID'];
+			$bankname = $_REQUEST['BANKNAME'];
 
-			$sql = "INSERT INTO courseorder(order_id,stu_email,course_id,status,respmsg,amount,order_date) VALUES ('$order_id'
-			,'$stu_email','$course_id','$status','$respmsg','$amount','$date')";
+			$sql = "INSERT INTO courseorder(order_id,stu_email,course_id,status,respmsg,amount,order_date,txid,bankid,bankname) VALUES ('$order_id'
+			,'$stu_email','$courseid','$status','$respmsg','$amount','$date','$txid','$bankid','$bankname')";
 
-			// if($conn->query($sql) == TRUE){
-			// 	echo "Redirecting to My profile..";
-			// 	echo "<script> setTimeout(() => {
-			// 		window.location.href = '../mycourses.php';
-			// 	},1500); </script>";
-			// }
+			if($conn->query($sql) == TRUE){
+				echo "Redirecting to My profile..";
+				echo "<script> setTimeout(() => {
+					window.location.href = '../mycourses.php';
+				},1500); </script>";
+			}
 
 		}
 	}
@@ -62,6 +69,8 @@ if($isValidChecksum == "TRUE") {
 }
 else {
 	echo "<b>Checksum mismatched.</b>";
+	// $stu_email = $_SESSION['email'];
+
 	//Process transaction as suspicious.
 }
 

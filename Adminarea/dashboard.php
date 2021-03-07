@@ -4,127 +4,142 @@ include('../links.php');
 include('basic.php');
 
 
-if(isset($_SESSION['adminemail'])){
+if (isset($_SESSION['adminemail'])) {
 
-$email = $_SESSION['adminemail'];
+    $email = $_SESSION['adminemail'];
 
-//for students
-$sql = "select * from register";
-$result = $conn->query($sql);
-$no_of_students = $result->num_rows;
+    //for students
+    $sql = "select * from register";
+    $result = $conn->query($sql);
+    $no_of_students = $result->num_rows;
 
-//for courses
-$sql1 = "select * from courses";
-$result1 = $conn->query($sql1);
-$no_of_courses = $result1->num_rows;
+    //for courses
+    $sql1 = "select * from courses";
+    $result1 = $conn->query($sql1);
+    $no_of_courses = $result1->num_rows;
 
-//for sold
-$sql2 = "select * from courseorder";
-$result2 = $conn->query($sql2);
-$no_of_courseorder = $result2->num_rows;
+    //for sold
+    $sql2 = "select * from courseorder";
+    $result2 = $conn->query($sql2);
+    $no_of_courseorder = $result2->num_rows;
 
-//for admins
-$sql3 = "select * from admininfo";
-$result3 = $conn->query($sql3);
-$no_of_admins = $result3->num_rows;
+    //for admins
+    $sql3 = "select * from admininfo";
+    $result3 = $conn->query($sql3);
+    $no_of_admins = $result3->num_rows;
 
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 
-<body>
-    <?php
-    adminnavbar();    ?>
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+        <title>Admin Dashboard</title>
+    </head>
 
-            <div class="flex flex-wrap -m-4 text-center">
-                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
+    <body>
+        <?php
+        adminnavbar();    ?>
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto">
 
-                        <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_courses;  ?></h2>
-                        <p class="leading-relaxed"><i class="fas fa-book-reader mr-2"></i><strong>Courses</strong></p>
+                <div class="flex flex-wrap -m-4 text-center">
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
+
+                            <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_courses;  ?></h2>
+                            <p class="leading-relaxed"><i class="fas fa-book-reader mr-2"></i><strong>Courses</strong></p>
+                        </div>
                     </div>
-                </div>
-                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
 
-                        <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_students;  ?></h2>
-                        <p class="leading-relaxed"><i class="fas fa-user-graduate mr-2"></i><strong>Students</strong></p>
+                            <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_students;  ?></h2>
+                            <p class="leading-relaxed"><i class="fas fa-user-graduate mr-2"></i><strong>Students</strong></p>
+                        </div>
                     </div>
-                </div>
-                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
 
-                        <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_courseorder;  ?></h2>
-                        <p class="leading-relaxed"><i class="fas fa-book mr-2"></i><strong>Enrolled</strong></p>
+                            <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_courseorder;  ?></h2>
+                            <p class="leading-relaxed"><i class="fas fa-book mr-2"></i><strong>Enrolled</strong></p>
+                        </div>
                     </div>
-                </div>
-                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg" style="background: peachpuff;">
 
-                        <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_admins;  ?></h2>
-                        <p class="leading-relaxed"><i class="fas fa-user mr-2"></i><strong>Admins</strong></p>
+                            <h2 class="title-font font-medium text-3xl text-gray-900"><?php echo $no_of_admins;  ?></h2>
+                            <p class="leading-relaxed"><i class="fas fa-user mr-2"></i><strong>Admins</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">S.No.</th>
-                <th scope="col">Order ID</th>
-                <th scope="col">Student Email</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Date</th>
-            </tr>
-        </thead>
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Student Email</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
 
-        <?php
+                </tr>
+            </thead>
+
+            <?php
             $a = 0;
-            while($courseorder = $result2->fetch_assoc()){
+            while ($courseorder = $result2->fetch_assoc()) {
                 $a++;
-                ?>
+            ?>
 
 
-<tbody>
-    <tr>
-        <th scope="row"><?php echo $a; ?></th>
-        <td><?php echo $courseorder['order_id']; ?></td>
-        <td><?php echo $courseorder['stu_email']; ?></td>
-        <td><?php echo $courseorder['amount']; ?></td>
-        <td><?php echo $courseorder['order_date']; ?></td>
-    </tr>
-</tbody>
-<?php
+                <tbody>
+                    <tr>
+                        <th scope="row"><?php echo $a; ?></th>
+                        <td><?php echo $courseorder['order_id']; ?></td>
+                        <td><?php echo $courseorder['stu_email']; ?></td>
+                        <td><?php echo $courseorder['amount']; ?></td>
+                        <td><?php echo $courseorder['order_date']; ?></td>
+                        <td> <a href="printadmin.php?orderid=<?php echo $courseorder['order_id'];?>" class='print btn btn-sm btn-primary' id=<?php echo $courseorder['order_id']; ?>>Print</a> </td>
+
+                    </tr>
+                </tbody>
+            <?php
 
             }
-        ?>
+            ?>
 
-    </table>
+        </table>
+
+        <script src=" ../bootstrap/js/jquery.vide.js"></script>
+        <script src="../bootstrap/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#myTable').DataTable();
+
+            });
+        </script>
+
+    </body>
 
 
-</body>
-
-</html>
+    </html>
 
 <?php
-}else{
-    ?>
-        <script>
-            location.href = 'adminlogin.php';
+} else {
+?>
+    < script>
+        location.href = 'adminlogin.php';
         </script>
     <?php
 }
-?>
+    ?>

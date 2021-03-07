@@ -52,7 +52,7 @@ if (!isset($_SESSION['email'])) {
                     </div>
                     <p class="leading-relaxed"><?php echo $row['description']; ?></p>
 
-                    <form class="flex" action="checkout.php" method="POST">
+                    <form class="flex" action="checkout.php?courseid=<?php echo $courseid; ?>" method="POST">
                         <div class="container">
                             <div class="row">
                                 <div class="col-4 mt-2">

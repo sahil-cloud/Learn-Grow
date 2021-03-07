@@ -2,9 +2,17 @@
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
+include('../dbcon.php');
+session_start();
 // following files need to be included
 require_once("./lib/config_paytm.php");
 require_once("./lib/encdec_paytm.php");
+
+															if (isset($_GET['email']) || isset($_GET['courseid'])) {
+																$email = $_GET['email'];
+																$courseid = $_GET['courseid'];
+																// $_SESSION['idc'] = $courseid;
+															}
 
 $checkSum = "";
 $paramList = array();
@@ -23,7 +31,7 @@ $paramList["INDUSTRY_TYPE_ID"] = $INDUSTRY_TYPE_ID;
 $paramList["CHANNEL_ID"] = $CHANNEL_ID;
 $paramList["TXN_AMOUNT"] = $TXN_AMOUNT;
 $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
-$paramList["CALLBACK_URL"] = "http://localhost/E-learning/PaytmKit/pgResponse.php";
+$paramList["CALLBACK_URL"] = "http://localhost/E-learning/PaytmKit/pgResponse.php?email=$email&courseid=$courseid" ;
 
 /*
 $paramList["MSISDN"] = $MSISDN; //Mobile number of customer
