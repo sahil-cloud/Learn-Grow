@@ -137,7 +137,7 @@ if (isset($_SESSION['adminemail'])) {
 <?php
 } else {
 ?>
-    < script>
+    <script>
         location.href = 'adminlogin.php';
         </script>
     <?php

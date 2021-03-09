@@ -4,7 +4,7 @@ include('../links.php');
 include('basic.php');
 // session_start();
 
-if (isset($_SESSION['adminemail'])) {
+if (isset($_SESSION['adminemail']) || isset($_SESSION['email'])) {
 
     if (isset($_GET['orderid'])) {
         $orderid = $_GET['orderid'];

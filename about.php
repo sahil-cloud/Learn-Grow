@@ -3,6 +3,14 @@ include('links.php');
 include('first.php');
     include('login.php');
 
+$_SESSION['homenavbar'] = "not-active";
+$_SESSION['coursenavbar'] = "not-active";
+$_SESSION['contactnavbar'] = "not-active";
+$_SESSION['aboutnavbar'] = "active";
+    $_SESSION['mycoursenavbar'] = "not-active";
+    $_SESSION['paymentnavbar'] = "not-active";
+    $_SESSION['feedbacknavbar'] = "not-active";
+
 ?>
 
 <!DOCTYPE html>

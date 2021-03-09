@@ -2,8 +2,18 @@
 include('links.php');
 include('dbcon.php');
     include('login.php');
+    include('first.php');
 
-session_start();
+
+// session_start();
+
+$_SESSION['homenavbar'] = 'not-active';
+$_SESSION['contactnavbar'] = 'not-active';
+$_SESSION['aboutnavbar'] = 'not-active';
+$_SESSION['coursenavbar'] = 'active';
+    $_SESSION['mycoursenavbar'] = "not-active";
+    $_SESSION['paymentnavbar'] = "not-active";
+    $_SESSION['feedbacknavbar'] = "not-active";
 
 
 
@@ -26,7 +36,6 @@ session_start();
 
 <body>
     <?php
-    include('first.php');
     navbar();
 
 

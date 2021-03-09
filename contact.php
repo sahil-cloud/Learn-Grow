@@ -4,6 +4,14 @@ include('first.php');
 include('dbcon.php');
 include('login.php');
 
+$_SESSION['homenavbar'] = 'not-active';
+$_SESSION['contactnavbar'] = 'active';
+$_SESSION['aboutnavbar'] = 'not-active';
+$_SESSION['coursenavbar'] = 'not-active';
+    $_SESSION['mycoursenavbar'] = "not-active";
+    $_SESSION['paymentnavbar'] = "not-active";
+    $_SESSION['feedbacknavbar'] = "not-active";
+
 if (isset($_REQUEST['contact'])){
     $name = $_REQUEST['name'];
     $email = $_REQUEST['email'];

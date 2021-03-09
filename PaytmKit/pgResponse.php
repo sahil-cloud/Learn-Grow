@@ -48,7 +48,7 @@ if($isValidChecksum == "TRUE") {
 			if($conn->query($sql) == TRUE){
 				echo "Redirecting to My profile..";
 				echo "<script> setTimeout(() => {
-					window.location.href = '../mycourses.php';
+					window.location.href = '../StudentArea/mycourses.php';
 				},1500); </script>";
 			}
 
