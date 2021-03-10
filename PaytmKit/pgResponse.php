@@ -45,6 +45,10 @@ if($isValidChecksum == "TRUE") {
 			$sql = "INSERT INTO courseorder(order_id,stu_email,course_id,status,respmsg,amount,order_date,txid,bankid,bankname) VALUES ('$order_id'
 			,'$stu_email','$courseid','$status','$respmsg','$amount','$date','$txid','$bankid','$bankname')";
 
+			// for quiz
+			$abcd = "INSERT INTO `score` (`s.no`, `email`, `courseid`, `marks`, `totalmarks`) VALUES (NULL, '$stu_email', '$courseid', '0', '10')";
+			$rest = $conn->query($abcd);
+
 			if($conn->query($sql) == TRUE){
 				echo "Redirecting to My profile..";
 				echo "<script> setTimeout(() => {
