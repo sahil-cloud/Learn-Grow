@@ -368,10 +368,17 @@ $_SESSION['feedbacknavbar'] = "not-active";
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
+                            $e = $row['email'];
+                            $abc = "SELECT * from register where email = '$e' ";
+                            $r = $conn->query($abc);
+                            if($r->num_rows > 0){
+                                $rf = $r->fetch_assoc();
+                                $img = $rf['image'];
+                            }
                     ?>
 
                             <div class="item card" style="width: 18rem; ">
-                                <img class="card-img-top mt-2" style="border-radius: 10rem !important; width:8rem;margin:auto" src="<?php echo $row['image']; ?>" alt="Card image cap">
+                                <img class="card-img-top mt-2" style="border-radius: 6rem !important; width:7rem;margin:auto" src="<?php echo $img; ?>" alt="<?php echo $rf['name'] ?>">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name']; ?></strong></h5>
                                     <p class="card-title" style="color: lightslategray;"><?php echo $row['email']; ?></p>
