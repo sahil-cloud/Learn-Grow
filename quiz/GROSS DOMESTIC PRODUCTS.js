@@ -1,43 +1,43 @@
 const quizDB = [
     {
-        question: "Q1: Who developed Python?",
-        a: "Zim Den",
-        b: "Guido van Rossum",
-        c: "Niene Stom",
-        d: "Wick van Rossum",
-        ans: "ans2"
-    },
-    {
-        question: "Q2: In which year was the Python language developed?",
-        a: "1995",
-        b: "1972",
-        c: "1985",
-        d: "1989",
-        ans: "ans4"
-    },
-    {
-        question: "Q3: Which character is used in Python to make a single line comment?",
-        a: "/",
-        b: "//",
-        c: "#",
-        d: "<-- -->",
-        ans: "ans3"
-    },
-    {
-        question: "Q4: Which of the following is not a keyword in Python language?",
-        a: "val",
-        b: "raise",
-        c: "try",
-        d: "With",
+        question: "Q1:  GDP deflator?",
+        a: "Evaluates inflation by utilizing present production basket",
+        b: "Shows real GDP growth on the basis of current production",
+        c: " The GDP deflator is in real terms while the CPI is in nominal terms",
+        d: " None of the above",
         ans: "ans1"
     },
     {
-        question: "Q5: What do we use to define a block of code in Python language?",
-        a: "Key",
-        b: "Brackets",
-        c: "Indentetion",
-        d: "None",
-        ans: "ans3"
+        question: "Q2:  An increase in aggregate demand results in",
+        a: " The cost to increase in the long term",
+        b: " GDP to increase in the long term",
+        c: " The cost to increase in the short run",
+        d: "GDP to increase in the short term",
+        ans: "ans4"
+    },
+    {
+        question: "Q3: The financial year in India is",
+        a: "April 1 to March 31",
+        b: "January 1 to December 31",
+        c: "March 1 to April 30",
+        d: " March 16 to March 15",
+        ans: "ans1"
+    },
+    {
+        question: "Q4: The net value of GDP after deducting depreciation from GDP is",
+        a: " Net national product",
+        b: "  Net domestic product",
+        c: " Gross national product",
+        d: " Disposable income",
+        ans: "ans2"
+    },
+    {
+        question: "Q5:  The average income of the country is",
+        a: "Per capita income",
+        b: " Disposable income",
+        c: " Inflation rate",
+        d: "Real national income",
+        ans: "ans1"
     },
 ];
 

@@ -49,8 +49,12 @@ $email = $_SESSION['email'];
                 <hr>
 
             </div>
+            <form class="lg:w-1/3 w-1/3 form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" style="border: 1px solid black;" id="search" placeholder="Search Course" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
 
-            <table class="table table-striped" id="myTable">
+            <table class="table table-striped mt-2" id="myTable">
                 <thead>
                     <tr>
                         <th scope="col">S.No.</th>
@@ -73,7 +77,7 @@ $email = $_SESSION['email'];
                 ?>
 
 
-                        <tbody>
+                        <tbody class="sss">
                             <tr>
                                 <th scope="row"><?php echo $a; ?></th>
                                 <td><?php echo $courseorder['order_id']; ?></td>
@@ -111,6 +115,29 @@ $email = $_SESSION['email'];
 
         });
     </script>
+    <!-- <script>
+        let search = document.getElementById('search');
+        search.addEventListener("input", function() {
+
+            let inputVal = search.value.toLowerCase();
+            // console.log('Input event fired!', inputVal);
+            let noteCards = document.getElementsByClassName('sss');
+            Array.from(noteCards).forEach(function(element) {
+                let cardTxt = element.getElementsByTagName("tr");
+                // let cardTxt1 = element.getElementsByTagName("h2")[0].innerText.toLowerCase();
+                // let cardTxt2 = element.getElementsByTagName("h3")[0].innerText.toLowerCase();
+                Array.from(cardTxt).forEach(function(elem){
+                    let td = elem.getElementsByTagName('td')[0].innerText.toLowerCase();
+                    if (td.includes(inputVal)) {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                })
+                // console.log(cardTxt);
+            })
+        })
+    </script> -->
 </body>
 
 </html>

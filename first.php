@@ -23,6 +23,13 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <title>Learn$Grow</title> -->
     <link rel="stylesheet" href="css/loginform.css">
+    <link rel="icon" href="images/titleicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
 
 </head>
@@ -371,7 +378,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                             $e = $row['email'];
                             $abc = "SELECT * from register where email = '$e' ";
                             $r = $conn->query($abc);
-                            if($r->num_rows > 0){
+                            if ($r->num_rows > 0) {
                                 $rf = $r->fetch_assoc();
                                 $img = $rf['image'];
                             }

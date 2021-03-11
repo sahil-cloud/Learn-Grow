@@ -30,6 +30,8 @@ if($isValidChecksum == "TRUE") {
 			if(isset($_GET['email'])){
 				$stu_email = $_GET['email'];
 				$courseid = $_GET['courseid'];
+				$_SESSION['email'] = $stu_email;
+				$_SESSION['status'] = "Active";
 			}
 			$order_id = $_REQUEST['ORDERID'];
 			// $stu_email = $_SESSION['email'];
@@ -52,7 +54,7 @@ if($isValidChecksum == "TRUE") {
 			if($conn->query($sql) == TRUE){
 				echo "Redirecting to My profile..";
 				echo "<script> setTimeout(() => {
-					window.location.href = '../StudentArea/mycourses.php';
+					window.location.href = '../mycourses.php';
 				},1500); </script>";
 			}
 

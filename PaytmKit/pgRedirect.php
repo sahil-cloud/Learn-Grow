@@ -12,6 +12,8 @@ require_once("./lib/encdec_paytm.php");
 																$email = $_GET['email'];
 																$courseid = $_GET['courseid'];
 																// $_SESSION['idc'] = $courseid;
+																$_SESSION['email'] = $email;
+																$_SESSION['status'] = "Active";
 															}
 
 $checkSum = "";
