@@ -2,7 +2,7 @@
 include('dbcon.php');
 include('first.php');
 // login page
-include('login.php');
+// include('login.php');
 include('links.php');
 // session_start();
 

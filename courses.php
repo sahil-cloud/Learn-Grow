@@ -1,7 +1,7 @@
 <?php
 include('links.php');
 include('dbcon.php');
-include('login.php');
+// include('login.php');
 include('first.php');
 
 

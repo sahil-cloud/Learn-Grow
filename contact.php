@@ -2,7 +2,7 @@
 include('links.php');
 include('first.php');
 include('dbcon.php');
-include('login.php');
+// include('login.php');
 
 $_SESSION['homenavbar'] = 'not-active';
 $_SESSION['contactnavbar'] = 'active';

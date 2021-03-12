@@ -1,13 +1,13 @@
 <?php
 include('dbcon.php');
 include('first.php');
-    include('login.php');
+    // include('login.php');
 
-session_start();
+// session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-
+if(!isset($_SESSION['email']) && !isset($_SESSION['status'])){
 
 // verifying token
 if (isset($_REQUEST['tokens'])) {
@@ -29,7 +29,7 @@ if (isset($_REQUEST['tokens'])) {
 
         if ($res2) {
             // $_SESSION['display'] = 'false';
-            $_SESSION['status'] = "active";
+            // $_SESSION['status'] = "active";
             echo "<script> alert('verified successfully! Login Now'); </script>";
             session_unset();
             session_destroy();
@@ -209,7 +209,7 @@ if (isset($_REQUEST['signup'])) {
                 </form>
             <?php } ?>
             <?php
-            if (isset($_SESSION['email'])) {
+            if (isset($_SESSION['email']) && !isset($_SESSION['status']) ) {
             ?>
 
                 <form method="POST" class="text-xs text-gray-600 py-24">
@@ -237,3 +237,15 @@ if (isset($_REQUEST['signup'])) {
 </body>
 
 </html>
+
+<?php
+}else{
+
+    ?>
+<script>
+location.href='index.php';
+</script>
+    <?php
+
+}
+?>

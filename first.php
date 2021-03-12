@@ -186,7 +186,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     <?php
                     } else {
                     ?>
-                        <a href="#" class="btn btn-primary btn-md m-1" style="border-radius: 12px;" data-toggle="modal" data-target="#exampleModalCenter"><strong>Login</strong></a>
+                        <a class="btn btn-primary btn-md m-1" style="border-radius: 12px;" href="login.php"><strong>Login</strong></a>
                         <a href="Adminarea/adminlogin.php" class="btn btn-primary btn-md m-1" style="border-radius: 12px;"><strong>Admin</strong></a>
 
                     <?php
