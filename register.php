@@ -117,9 +117,9 @@ if (isset($_REQUEST['signup'])) {
             $mail->Host = 'smtp.gmail.com';
             $mail->Port = 587;
             $mail->isHTML(true);
-            $mail->Username = "idhrudhr.carrental@gmail.com";
-            $mail->Password = "IdhrUdhr@hack_1";
-            $mail->setFrom("idhrudhr.carrental@gmail.com");
+                $mail->Username = "Learngrow.elearning@gmail.com";
+                $mail->Password = "learnandgrow";
+                $mail->setFrom("Learngrow.elearning@gmail.com");
             $mail->Subject = $mailsub;
             $mail->Body = $mailmsg;
             $mail->addAddress($mailto);

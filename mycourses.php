@@ -16,9 +16,42 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
 
     $email = $_SESSION['email'];
 
+    if (isset($_GET['courseid'])) {
+        $cid = $_GET['courseid'];
+        $rating = $_REQUEST['ratings'];
+        $comment = $_REQUEST['comment'];
+        $email = $_SESSION['email'];
 
-
+        if ($rating == "" || $comment == "") {
 ?>
+            <script>
+                alert('All Fields required!');
+                location.href = 'mycourses.php';
+            </script>
+            <?php
+        } else {
+
+            $sql = "INSERT INTO `comments` (`courseid`, `stu_email`, `comment`, `rating`) VALUES ('$cid', '$email', '$comment', '$rating')";
+            $result = $conn->query($sql);
+
+            if ($result) {
+            ?>
+                <script>
+                    location.href = 'mycourses.php';
+                </script>
+            <?php
+            } else {
+            ?>
+                <script>
+                    alert('some error occured');
+                    location.href = 'mycourses.php';
+                </script>
+    <?php
+            }
+        }
+    }
+
+    ?>
 
 
 
@@ -43,6 +76,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
     <body>
         <?php
         navbar();
+
         ?>
 
 
@@ -89,40 +123,97 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
                                     $score = ($marks / $totalmarks) * 100;
                                 }
                         ?>
-                                
-                                <div class="card p-4 lg:w-2/5 m-4">
-                                    <div class="target h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                                        <img alt="<?php echo $rrr1['name'] ?>" class="flex-shrink-0 rounded-lg w-1/2 h-1/2 object-cover object-center sm:mb-0 mb-4" src="<?php echo $rrr1['image']; ?>">
+
+
+                                <div class="card p-4 lg:w-full m-2">
+                                    <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                                        <img alt="<?php echo $rrr1['name'] ?>" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="<?php echo $rrr1['image']; ?>">
                                         <div class="flex-grow sm:pl-8">
-                                            <h2 class="title-font font-medium text-lg text-gray-900 name"><?php echo $rrr1['name'] ?></h2>
-                                            <h3 class="text-gray-500 mb-3 cat"><?php echo $rrr1['category'] ?></h3>
-                                            <p class="mb-4 desc"><?php echo $rrr1['description'] ?></p>
-                                            <a class="btn btn-primary text-white" href="watchcourse.php?courseid=<?php echo $rrr1['courseid']  ?>&marks=<?php echo $marks; ?>"><strong>Watch Course</strong></a>
+                                            <h2 class="title-font font-medium text-lg text-gray-900"><?php echo $rrr1['name'] ?></h2>
+                                            <h3 class="text-gray-500 mb-3"><?php echo $rrr1['category'] ?></h3>
+                                            <p class="mb-4"><?php echo $rrr1['description'] ?></p>
+                                            <span class="inline-flex">
+                                                <a class="btn btn-primary text-white m-2" href="watchcourse.php?courseid=<?php echo $rrr1['courseid']  ?>&marks=<?php echo $marks; ?>"><strong>Watch Course</strong></a>
+                                                <a class="btn btn-primary text-white m-2" href="takequiz.php?courseid=<?php echo $rrr1['courseid'] ?>&marks=<?php echo $marks; ?>&exit=0"><strong>Take Quiz</strong></a>
+                                                <a class="btn btn-success <?php if ($rt->num_rows > 0) {
+                                                                                if ($score < 75) echo "disabled";
+                                                                            } else {
+                                                                                echo "disabled";
+                                                                            } ?> text-gray-900 m-2" href="certificate/certificate.php?courseid=<?php echo $rrr1['courseid'] ?>"><strong>Download Certificate</strong></a>
+                                            </span>
+                                            <span class="text-xl text-green-800 m-2"><strong>Score: <?php if ($rt->num_rows > 0) {
+                                                                                                        echo $score;
+                                                                                                    } else {
+                                                                                                        echo "0";
+                                                                                                    } ?>% </strong></span><span style="color: black;">(Score above 75% to get certificate)</span>
+                                            <h4 class="text-gray-700 mb-1 mt-2">(The maximum marks of all attempt will be considered)</h4>
+
+                                            <!-- comment and rating area -->
+
+
+
 
                                         </div>
-
                                     </div>
-                                    <div class="ml-4">
+                                    <hr>
+                                    <?php
+                                    $email = $_SESSION['email'];
+                                    $cid1 = $rrr1['courseid'];
 
-                                        <a class="btn btn-primary text-white" href="takequiz.php?courseid=<?php echo $rrr1['courseid'] ?>&marks=<?php echo $marks; ?>&exit=0"><strong>Take Quiz</strong></a>
-                                        <span class="text-xl text-green-800 m-2"><strong>Score: <?php if ($rt->num_rows > 0) {
-                                                                                                    echo $score;
-                                                                                                } else {
-                                                                                                    echo "0";
-                                                                                                } ?>% </strong></span><span style="color: black;">(Score above 75% to get certificate)</span>
-                                        <h4 class="text-gray-700 mb-1 mt-2">(The maximum marks of all attempt will be considered)</h4>
+                                    $ss = "SELECT * from comments where stu_email = '$email' and courseid = '$cid1' ";
+                                    $res = $conn->query($ss);
 
-                                    </div>
-                                    <a class="btn btn-success <?php if ($rt->num_rows > 0) {
-                                                                    if ($score < 75) echo "disabled";
-                                                                } else {
-                                                                    echo "disabled";
-                                                                } ?> text-gray-900 m-2" href="certificate/certificate.php?courseid=<?php echo $rrr1['courseid'] ?>"><strong>Download Certificate</strong></a>
+                                    if ($res->num_rows > 0) {
+                                        $res2 = $res->fetch_assoc();
+                                        $rate = $res2['rating'];
+                                        $com = $res2['comment'];
+                                    ?>
+                                        <section class="text-gray-600 body-font">
+                                            <div class="container px-1 mx-auto">
+                                                <div class="flex flex-col text-center w-full mb-2">
+                                                    <h1 class="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900">My Ratings✨</h1>
+                                                </div>
+                                                <p class="lg:full mx-auto leading-relaxed text-base"><span style="color: black;">Rating:</span> <?php echo $rate ?> </p>
+                                                <p class="lg:full mx-auto leading-relaxed text-base"><span style="color: black;">Comment:</span> <?php echo $com ?> </p>
+
+                                            </div>
+                                        </section>
+                                    <?php
+
+                                    } else {
+                                    ?>
+                                        <section class="text-gray-600 body-font">
+                                            <div class="container px-1 mx-auto">
+                                                <div class="flex flex-col text-center w-full mb-2">
+                                                    <h1 class="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900">Rate This Course✨</h1>
+                                                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Based on your experience rate this course and help us keep improving day by day</p>
+                                                </div>
+                                                <form action="mycourses.php?courseid=<?php echo $rrr1['courseid']  ?>" method="POST" class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+
+                                                    <div class="relative flex-grow w-full">
+                                                        <label for="ratings" class="leading-7 text-sm text-gray-600"><strong>Ratings</strong>(out of 5)</label>
+                                                        <input type="number" step="0.01" max="5" min="0" id="ratings" name="ratings" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                    </div>
+
+                                                    <div class="relative flex-grow w-full">
+                                                        <label for="comment" class="leading-7 text-sm text-gray-600"><strong>Comment</strong></label>
+                                                        <input type="text" id="comment" name="comment" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                    </div>
+                                                    <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" name="submit">Submit</button>
+                                                </form>
+
+                                            </div>
+                                        </section>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                         <?php
                             }
                         }
                         ?>
+
+
 
                     </div>
                 <?php

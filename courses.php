@@ -186,7 +186,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item" style="width: 14rem; ">
+                            <div class="item card bg-blue-100" style="width: 18rem;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -248,7 +248,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item" style="width: 14rem; ">
+                            <div class="item card bg-blue-100" style="width: 18rem;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -306,7 +306,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item" style="width: 14rem; ">
+                            <div class="item card bg-blue-100" style="width: 18rem;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -366,7 +366,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item" style="width: 14rem; ">
+                            <div class="item card bg-blue-100" style="width: 18rem;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>

@@ -361,12 +361,12 @@ $_SESSION['feedbacknavbar'] = "not-active";
     {
         include('dbcon.php');
     ?>
-        <div id="feed" class="mb-2 mt-2">
+        <div id="feed" class="mb-4 mt-4">
             <h1 class="text-gray-700 text-4xl title-font font-medium mt-5 mb-4 text-center">Success stories from our students</h1>
             <div class="flex mt-6 justify-center">
                 <div class="w-8 h-1 rounded-full bg-indigo-500 inline-flex"></div>
             </div>
-            <div class="container">
+            <div class="container-fluid m-3 bg-blue-100">
                 <div class="owl-carousel owl-theme mt-3 mb-2">
 
                     <?php
@@ -384,8 +384,8 @@ $_SESSION['feedbacknavbar'] = "not-active";
                             }
                     ?>
 
-                            <div class="item card" style="width: 18rem; ">
-                                <img class="card-img-top mt-2" style="border-radius: 6rem !important; width:7rem;margin:auto" src="<?php echo $img; ?>" alt="<?php echo $rf['name'] ?>">
+                            <div class="item" style="width: 18rem;">
+                                <img class="card-img-top mt-2" style="border-radius: 5rem !important; width:7rem;" src="<?php echo $img; ?>" alt="<?php echo $rf['name'] ?>">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name']; ?></strong></h5>
                                     <p class="card-title" style="color: lightslategray;"><?php echo $row['email']; ?></p>
