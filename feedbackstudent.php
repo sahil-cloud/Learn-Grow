@@ -24,7 +24,7 @@ if (isset($_REQUEST['upfeed'])) {
     if ($rs) {
 ?>
         <script>
-            alert('Inserted successfully');
+            location.href = 'feedbackstudent.php';
         </script>
     <?php
     }

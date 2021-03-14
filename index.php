@@ -47,6 +47,7 @@ use PHPMailer\PHPMailer\PHPMailer;
     goals();
     Ring();
     quiz();
+    qna();
     feed();
     footer();
     ?>

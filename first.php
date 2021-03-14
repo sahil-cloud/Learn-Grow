@@ -51,85 +51,6 @@ $_SESSION['feedbacknavbar'] = "not-active";
 
 <body>
 
-    <!-- modal -->
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-    </button> -->
-
-    <!-- Modal Login -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <!-- <h5 class="modal-title text-center text-2xl" id="exampleModalLongTitle" style="margin: auto !important ;"><strong>Login</strong></h5> -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="login-form">
-                        <form method="post">
-                            <!-- <h2 class="text-center">Sign in</h2> -->
-                            <div class="text-center social-btn">
-                                <a href="#" class="btn btn-primary btn-block"><i class="fab fa-facebook"></i> Sign in with <b>Facebook</b></a>
-                                <a href="#" class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Sign in with <b>Twitter</b></a>
-                                <a href="#" class="btn btn-danger btn-block"><i class="fab fa-google"></i> Sign in with <b>Google</b></a>
-                            </div>
-                            <div class="or-seperator"><i>or</i></div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <span class="fa fa-user"></span>
-                                        </span>
-                                    </div>
-                                    <input type="email" class="form-control" name="emaillogin" placeholder="Email" required="required">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-lock"></i>
-                                        </span>
-                                    </div>
-                                    <input type="password" class="form-control" name="passwordlogin" placeholder="Password" required="required">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" name='login' class="btn btn-success btn-block login-btn">Login</button>
-                            </div>
-                            <div class="clearfix">
-                                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                                <a href="#" class="float-right text-success">Forgot Password?</a>
-                            </div>
-
-                        </form>
-                        <div class="hint-text">Don't have an account? <a href="register.php" class="text-success">Register Now!</a></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- php functions -->
     <?php
@@ -145,6 +66,9 @@ $_SESSION['feedbacknavbar'] = "not-active";
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item -ml-5">
+                        <a href="index.php"> <img class="nav-link" src="favicon-32x32.png"></img></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" <?php if ($_SESSION['homenavbar'] == "active") { ?> style="color:blue !important;" <?php } ?> href="index.php">Home</a>
                     </li>
@@ -355,6 +279,29 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <?php
     }
 
+    function qna()
+    {
+    ?>
+        <section class="text-gray-600 body-font overflow-hidden">
+            <div class="container px-5 py-8 mx-auto mb-3">
+                <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                    <img alt="ecommerce" class="lg:w-3/5 w-full lg:h-auto h-64 object-cover object-center rounded" src="images/qna.png">
+
+                    <div class="lg:w-2/5 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                        <h1 class="text-gray-900 text-3xl title-font font-medium mt-5 mb-4">Question&Answer Forum✨</h1>
+                        <hr>
+                        <p class="leading-relaxed mb-4">Solve your doubts with our Q&A Forum and allow other students and faculties to solve your doubts related to any concepts</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <?php
+    }
+
 
     // feedback
     function feed()
@@ -492,6 +439,8 @@ $_SESSION['feedbacknavbar'] = "not-active";
             <div class="bg-gray-100">
                 <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
                     <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>© 2021 Learn$Grow |</strong></a>
+                  <a href="developerinfo.php"> <p class="navbar-brand leading-relaxed">About the Developers💻</p></a> 
+
                     <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                         <a class="text-gray-500">
                             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">

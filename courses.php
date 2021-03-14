@@ -167,9 +167,11 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-2 mx-auto">
             <div class="flex flex-col text-center w-full mb-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest" style="color: navy;font-family: 'Akaya Kanadaka', cursive;"><strong>Computer Science Courses
-                        <hr>
+                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Computer Science Courses
                     </strong></h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
+                    “It’s hardware that makes a machine fast. It’s software that makes a fast machine slow.”
+                </p>
             </div>
 
 
@@ -186,7 +188,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item card bg-blue-100" style="width: 18rem;">
+                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -197,11 +199,11 @@ $_SESSION['feedbacknavbar'] = "not-active";
                                             <div class="col-6">
 
 
-                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
                                             </div>
                                             <div class="col-4 offset-2">
 
-                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
+                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-info btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
                                                 </a>
 
                                             </div>
@@ -226,13 +228,19 @@ $_SESSION['feedbacknavbar'] = "not-active";
     </section>
 
 
+
+
+
     <!-- Business courses -->
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-4 mx-auto">
             <div class="flex flex-col text-center w-full mb-2 mt-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest" style="color: navy;font-family: 'Akaya Kanadaka', cursive;"><strong>Business Courses
-                        <hr>
+                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Business Courses
+
                     </strong></h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
+                    "Business opportunities are like buses, there's always another one coming.”
+                </p>
             </div>
 
             <div class="container">
@@ -248,7 +256,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item card bg-blue-100" style="width: 18rem;">
+                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -259,7 +267,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                                             <div class="col-6">
 
 
-                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
                                             </div>
                                             <div class="col-4 offset-2">
 
@@ -288,9 +296,12 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-4 mx-auto">
             <div class="flex flex-col text-center w-full mb-2 mt-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest" style="color: navy;font-family: 'Akaya Kanadaka', cursive;"><strong>Cooking Courses
-                        <hr>
+                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Cooking Courses
+
                     </strong></h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
+                    "Business opportunities are like buses, there's always another one coming.”
+                </p>
             </div>
 
             <div class="container">
@@ -306,7 +317,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item card bg-blue-100" style="width: 18rem;">
+                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -317,7 +328,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                                             <div class="col-6">
 
 
-                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
                                             </div>
                                             <div class="col-4 offset-2">
                                                 <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
@@ -347,10 +358,14 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-4 mx-auto">
             <div class="flex flex-col text-center w-full mb-2 mt-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest" style="color: navy;font-family: 'Akaya Kanadaka', cursive;"><strong>Personality
+                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Personality
                         Development Courses
-                        <hr>
+                        <!-- <hr> -->
+
                     </strong></h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
+                    "Business opportunities are like buses, there's always another one coming.”
+                </p>
             </div>
 
             <div class="container">
@@ -366,7 +381,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     ?>
 
 
-                            <div class="item card bg-blue-100" style="width: 18rem;">
+                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
                                 <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
@@ -377,7 +392,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                                             <div class="col-6">
 
 
-                                                <p class="text-xs mt-3"><?php echo $row['rate']  ?></p>
+                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
                                             </div>
                                             <div class="col-4 offset-2">
 

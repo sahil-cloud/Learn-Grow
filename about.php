@@ -1,15 +1,15 @@
 <?php
 include('links.php');
 include('first.php');
-    // include('login.php');
+// include('login.php');
 
 $_SESSION['homenavbar'] = "not-active";
 $_SESSION['coursenavbar'] = "not-active";
 $_SESSION['contactnavbar'] = "not-active";
 $_SESSION['aboutnavbar'] = "active";
-    $_SESSION['mycoursenavbar'] = "not-active";
-    $_SESSION['paymentnavbar'] = "not-active";
-    $_SESSION['feedbacknavbar'] = "not-active";
+$_SESSION['mycoursenavbar'] = "not-active";
+$_SESSION['paymentnavbar'] = "not-active";
+$_SESSION['feedbacknavbar'] = "not-active";
 
 ?>
 
@@ -29,54 +29,10 @@ $_SESSION['aboutnavbar'] = "active";
 
 <body>
     <?php
-navbar();
+    navbar();
     ?>
 
-    <!--carousel-->
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="images/about/3.jpeg" style="height: 500px;" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3><strong>Our Vision</strong></h3>
-                    <h4>
-                        <p style="color: white; font-size: larger;">We envision a world where anyone, anywhere has the power to transform their life through learning.</p>
-                    </h4>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="images/about/4.jpeg" style="height: 500px;" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3><strong>Our Vision</strong></h3>
-                    <h4>
-                        <p style="color: white; font-size: larger;">“People expect to be bored by eLearning—let’s show them it doesn’t have to be like that!” </p>
-                    </h4>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/about/1.jpeg" style="height: 500px;" class="d-block w-100" alt="...">9
-                <div class="carousel-caption d-none d-md-block">
-                    <h3><strong>Our Vision</strong></h3>
-                    <h4>
-                        <p style="color: white; font-size: larger;">"Online learning is not the next big thing, it is the now big thing.” </p>
-                    </h4>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+
 
     <section class="text-gray-600 body-font overflow-hidden">
         <div class=" px-7 py-24 mx-auto">
@@ -190,7 +146,8 @@ navbar();
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <h5 class="card-title" style="font-size: xx-large; color: blue;">200+ world-class partners are teaching <div>the world.</div></h5>
+                                <h5 class="card-title" style="font-size: xx-large; color: blue;">200+ world-class partners are teaching <div>the world.</div>
+                                </h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             </div>
@@ -251,7 +208,7 @@ navbar();
                         </div>
                         <div class="flex-grow">
 
-                            <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                            <a class="mt-3 text-indigo-500 inline-flex items-center" href="developerinfo.php"><strong>Join</strong>
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
