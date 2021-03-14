@@ -133,27 +133,31 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
                                             <h3 class="text-gray-500 mb-3"><?php echo $rrr1['category'] ?></h3>
                                             <p class="mb-4"><?php echo $rrr1['description'] ?></p>
                                             <span class="inline-flex">
-                                                <a class="btn btn-primary text-white m-2" href="watchcourse.php?courseid=<?php echo $rrr1['courseid']  ?>&marks=<?php echo $marks; ?>"><strong>Watch Course</strong></a>
-                                                <a class="btn btn-primary text-white m-2" href="takequiz.php?courseid=<?php echo $rrr1['courseid'] ?>&marks=<?php echo $marks; ?>&exit=0"><strong>Take Quiz</strong></a>
+                                                <a class="btn btn-primary text-white m-2" href="watchcourse.php?courseid=<?php echo $rrr1['courseid']  ?>&marks=<?php echo $marks; ?>"><strong>Watch Course📺</strong></a>
+                                                <a class="btn btn-primary text-white m-2" href="takequiz.php?courseid=<?php echo $rrr1['courseid'] ?>&marks=<?php echo $marks; ?>&exit=0"><strong>Take Quiz📓</strong></a>
+                                                <a class="btn btn-primary text-white m-2" href="qnaforum.php?courseid=<?php echo $rrr1['courseid']  ?>"><strong>Q&A Forum🤔</strong></a>
+                                            </span>
+                                            <span class="inline-flex">
                                                 <a class="btn btn-success <?php if ($rt->num_rows > 0) {
                                                                                 if ($score < 75) echo "disabled";
                                                                             } else {
                                                                                 echo "disabled";
-                                                                            } ?> text-gray-900 m-2" href="certificate/certificate.php?courseid=<?php echo $rrr1['courseid'] ?>"><strong>Download Certificate</strong></a>
+                                                                            } ?> text-gray-900 m-2" href="certificate/certificate.php?courseid=<?php echo $rrr1['courseid'] ?>"><strong>Download Certificate🎓</strong></a>
                                             </span>
-                                            <span class="text-xl text-green-800 m-2"><strong>Score: <?php if ($rt->num_rows > 0) {
+                                            <div class="text-xl text-green-800 m-2"><strong>Score: <?php if ($rt->num_rows > 0) {
                                                                                                         echo $score;
                                                                                                     } else {
                                                                                                         echo "0";
-                                                                                                    } ?>% </strong></span><span style="color: black;">(Score above 75% to get certificate)</span>
+                                                                                                    } ?>% </strong><span style="color: black;">(Score above 75% to get certificate)</span></div>
+
                                             <h4 class="text-gray-700 mb-1 mt-2">(The maximum marks of all attempt will be considered)</h4>
 
+                                        </div>
                                             <!-- comment and rating area -->
 
 
 
 
-                                        </div>
                                     </div>
                                     <hr>
                                     <?php

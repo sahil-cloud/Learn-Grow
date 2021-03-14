@@ -361,12 +361,12 @@ $_SESSION['feedbacknavbar'] = "not-active";
     {
         include('dbcon.php');
     ?>
-        <div id="feed" class="mb-4 mt-4">
+        <div id="feed" class="mt-4">
             <h1 class="text-gray-700 text-4xl title-font font-medium mt-5 mb-4 text-center">Success stories from our students</h1>
             <div class="flex mt-6 justify-center">
                 <div class="w-8 h-1 rounded-full bg-indigo-500 inline-flex"></div>
             </div>
-            <div class="container-fluid m-3 bg-blue-100">
+            <div class="container-fluid bg-blue-100">
                 <div class="owl-carousel owl-theme mt-3 mb-2">
 
                     <?php
@@ -401,125 +401,128 @@ $_SESSION['feedbacknavbar'] = "not-active";
 
 
                 </div>
-
             </div>
-        <?php
-    }
-        ?>
+
         </div>
-        <?php
-        // footer
-        function footer()
-        {
-        ?>
-            <footer class="text-gray-600 body-font" style="box-shadow: 10px 10px 10px 10px gray !important;">
-                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-                    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-                        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+    <?php
+    }
+    ?>
+    </div>
+    <?php
+    // footer
+    function footer()
+    {
+    ?>
+        <footer class="text-gray-600 body-font" style="box-shadow: 10px 10px 10px 10px gray !important;">
+            <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+                <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
 
-                            <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>Learn$Grow |</strong></a>
+                        <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;">
+                            <img src="images/titleicon.jpeg" alt="Learn$Grow |" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0">
                         </a>
-                        <p class="mt-2 text-sm text-gray-500">Build skills with courses and certificates online from world class profesionals</p>
-                    </div>
-                    <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-                        <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-                            <h2 class="title-font font-medium text-gray-900 tracking-widest text-md mb-3"><strong>Top Courses</strong></h2>
-                            <nav class="list-none mb-10">
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Web development</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">App development</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">AI and Machine learning</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Cloud computing</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Python</a>
-                                </li>
-                            </nav>
-                        </div>
-
-                        <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-                            <h2 class="title-font font-medium text-gray-900 tracking-widest text-md mb-3"><strong>
-                                    More</strong></h2>
-                            <nav class="list-none mb-10">
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Terms</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
-                                </li>
-
-                                <li>
-                                    <a href="#feed" class="text-gray-600 hover:text-gray-800">Feedbacks</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800" href="contact.php">Contact</a>
-                                </li>
-
-                            </nav>
-                        </div>
-                        <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-                            <h2 class="title-font font-medium text-gray-900 tracking-widest text-md mb-3"><strong>Learn$Grow</strong></h2>
-                            <nav class="list-none mb-10">
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800" href="about.php">About</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Career</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Certificates</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Catalog</a>
-                                </li>
-                                <li>
-                                    <a class="text-gray-600 hover:text-gray-800">Mentors</a>
-                                </li>
-                            </nav>
-                        </div>
-
-                    </div>
+                    </a>
+                    <p class="mt-2 text-sm text-gray-500">Build skills with courses and certificates online from world class profesionals</p>
                 </div>
-                <div class="bg-gray-100">
-                    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-                        <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>© 2021 Learn$Grow |</strong></a>
-                        <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-                            <a class="text-gray-500">
-                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a class="ml-3 text-gray-500">
-                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                </svg>
-                            </a>
-                            <a class="ml-3 text-gray-500">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                                </svg>
-                            </a>
-                            <a class="ml-3 text-gray-500">
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-                                    <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                                </svg>
-                            </a>
-                        </span>
+                <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                    <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-md mb-3"><strong>Top Courses</strong></h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Web development</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">App development</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">AI and Machine learning</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Cloud computing</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Python</a>
+                            </li>
+                        </nav>
                     </div>
-                </div>
-            </footer>
 
-        <?php
-        }
-        ?>
+                    <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-md mb-3"><strong>
+                                More</strong></h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Terms</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                            </li>
+
+                            <li>
+                                <a href="#feed" class="text-gray-600 hover:text-gray-800">Feedbacks</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800" href="contact.php">Contact</a>
+                            </li>
+
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-md mb-3"><strong>Learn$Grow</strong></h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800" href="about.php">About</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Career</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Certificates</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Catalog</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Mentors</a>
+                            </li>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bg-gray-100">
+                <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                    <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>© 2021 Learn$Grow |</strong></a>
+                    <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                        <a class="text-gray-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-gray-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-gray-500">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-gray-500">
+                            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                            </svg>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </footer>
+
+    <?php
+    }
+    ?>
 
 
 </body>
