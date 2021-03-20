@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $courseamount = $_POST["amount"];
         $coursecategory = $_POST["category"];
         $courseimage = $_FILES["courseimage"];
+        $coursepdf = $_FILES["coursepdf"];
 
         // print_r($courseimage);
 
@@ -62,22 +63,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $imgerror = $courseimage['error'];
         $imgtmp = $courseimage['tmp_name'];
 
+        $pdfname = $coursepdf['name'];
+        $pdferror = $coursepdf['error'];
+        $pdftmp = $coursepdf['tmp_name'];
+
         // exploding extension
         $imgtxt = explode('.', $imgname);
         $imgcheck = strtolower(end($imgtxt));
 
+        // exploding extension
+        $pdftxt = explode('.', $pdfname);
+        $pdfcheck = strtolower(end($pdftxt));
+
         //checking array
         $imgextentions = array('png', 'jpg', 'jpeg');
 
-        if (in_array($imgcheck, $imgextentions)) {
+        //checking array
+        $pdfex = array('pdf', 'docs');
+
+        if (in_array($imgcheck, $imgextentions) && in_array($pdfcheck, $pdfex)) {
 
             // $imgdest = '../img/' . $imgname;
             $imgdest1 = 'images/courses/' . $imgname;
             $imgdest = 'Adminarea/' . $imgdest1;
             move_uploaded_file($imgtmp, $imgdest1);
+
+            // $imgdest = '../img/' . $imgname;
+            $pdfdest1 = 'pdf/' . $pdfname;
+            $pdfdest = 'Adminarea/' . $pdfdest1;
+            move_uploaded_file($pdftmp, $pdfdest1);
             // print_r($imgdest1);
 
-            $sql = "INSERT INTO courses VALUES ('$coursename', '$courseid','$imgdest','$courseamount','$coursedesc','$coursecategory')";
+            $sql = "INSERT INTO courses VALUES ('$coursename', '$courseid','$imgdest','$courseamount','$coursedesc','$coursecategory','$pdfdest')";
             $result2 = $conn->query($sql);
 
 
@@ -204,6 +221,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="courseimage">Course Image</label>
                 <input class="form-control" id="courseimage" name="courseimage" type="file">
             </div>
+            <div class="form-group">
+                <label for="coursepdf">Course Notes</label>
+                <input class="form-control" id="coursepdf" name="coursepdf" type="file">
+            </div>
             <button type="submit" class="btn btn-primary">Add Course</button>
         </form>
     </div>
@@ -267,19 +288,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </section>
 
 
-    <script src=" ../bootstrap/js/jquery.vide.js"></script>
-    <script src="../bootstrap/js/jquery.dataTables.min.js"></script>
-    <script>
+    <script type="text/javascript" src=" ../bootstrap/js/jquery.vide.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#myTable').DataTable();
 
         });
     </script>
-    <script>
+    <script type="text/javascript">
         edits = document.getElementsByClassName('edit');
+        // console.log(edits);
         Array.from(edits).forEach((element) => {
             element.addEventListener("click", (e) => {
-                console.log("edit ");
+                console.log("edit");
+                console.log(e);
                 tr = e.target.parentNode.parentNode;
                 title = tr.getElementsByTagName("td")[0].innerText;
                 description = tr.getElementsByTagName("td")[1].innerText;
@@ -290,7 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 console.log(e.target.id)
                 $('#editModal').modal('toggle');
             })
-        })
+        });
 
         deletes = document.getElementsByClassName('delete');
         Array.from(deletes).forEach((element) => {

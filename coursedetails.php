@@ -1,5 +1,5 @@
 <?php
-include('links.php');
+// include('links.php');
 include('dbcon.php');
 include('first.php');
 session_start();

@@ -10,8 +10,9 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name,$db_port);
 //checking
 if($conn->connect_error){
     die("connection fail");}
-// }else{
-//     echo "connect";
+// else{
+//     // echo "connect";
+//     session_start();
 // }
 
 ?>

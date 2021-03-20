@@ -13,6 +13,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
     $_SESSION['mycoursenavbar'] = "active";
     $_SESSION['paymentnavbar'] = "not-active";
     $_SESSION['feedbacknavbar'] = "not-active";
+    $_SESSION['feedbacksnav'] = "not-active";
+
 
     $email = $_SESSION['email'];
 
@@ -134,16 +136,21 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
                                             <p class="mb-4"><?php echo $rrr1['description'] ?></p>
                                             <span class="inline-flex">
                                                 <a class="btn btn-primary text-white m-2" href="watchcourse.php?courseid=<?php echo $rrr1['courseid']  ?>&marks=<?php echo $marks; ?>"><strong>Watch Course📺</strong></a>
-                                                <a class="btn btn-primary text-white m-2" href="takequiz.php?courseid=<?php echo $rrr1['courseid'] ?>&marks=<?php echo $marks; ?>&exit=0"><strong>Take Quiz📓</strong></a>
-                                                <a class="btn btn-primary text-white m-2" href="qnaforum.php?courseid=<?php echo $rrr1['courseid']  ?>"><strong>Q&A Forum🤔</strong></a>
+                                                <a class="btn btn-primary text-white m-2" href="takequiz.php?courseid=<?php echo $rrr1['courseid'] ?>&marks=<?php echo $marks; ?>&exit=0"><strong>Take Quiz📓 </strong></a>
                                             </span>
+                                            <div class="flex-grow sm:pl-8">
+                                                <a class="btn btn-primary text-white m-2" href="qnaforum.php?courseid=<?php echo $rrr1['courseid']  ?>"><strong>Q&A Forum🤔</strong></a>
+                                                <a class="text-white m-2 btn btn-primary leading-relaxed mt-2" href="<?php echo $rrr1['pdf']  ?>"><strong>🤟Download Notes</strong></a>
+
+                                            </div>
                                             <span class="inline-flex">
                                                 <a class="btn btn-success <?php if ($rt->num_rows > 0) {
-                                                                                if ($score < 75) echo "disabled";
-                                                                            } else {
-                                                                                echo "disabled";
-                                                                            } ?> text-gray-900 m-2" href="certificate/certificate.php?courseid=<?php echo $rrr1['courseid'] ?>"><strong>Download Certificate🎓</strong></a>
+                                                    if ($score < 75) echo "disabled";
+                                                } else {
+                                                    echo "disabled";
+                                                } ?> text-gray-900 m-2" href="certificate/certificate.php?courseid=<?php echo $rrr1['courseid'] ?>"><strong>Download Certificate🎓</strong></a>
                                             </span>
+                                                <h4 class="text-gray-700 mb-1 mt-2">(Certificate will also be sent to your email in pdf nad jpg format)</h4>
                                             <div class="text-xl text-green-800 m-2"><strong>Score: <?php if ($rt->num_rows > 0) {
                                                                                                         echo $score;
                                                                                                     } else {
@@ -153,7 +160,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
                                             <h4 class="text-gray-700 mb-1 mt-2">(The maximum marks of all attempt will be considered)</h4>
 
                                         </div>
-                                            <!-- comment and rating area -->
+                                        <!-- comment and rating area -->
 
 
 
@@ -243,10 +250,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
         <?php
         footer();
         ?>
-        <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
-        <script src="bootstrap/js/popper.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script>
+
+        <script type="text/javascript">
             let search = document.getElementById('search');
             search.addEventListener("input", function() {
 

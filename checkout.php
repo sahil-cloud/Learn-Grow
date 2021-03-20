@@ -24,20 +24,7 @@ if (!isset($_SESSION['email'])) {
         $cc = trim($courseid,"'");
         // echo $cc;
     }
-
-    $ss = "SELECT * from courseorder where stu_email = '$email' and course_id = '$cc' ";
-    $res = $conn->query($ss);
-
-    if($res->num_rows > 0){
-        ?>
-
-<script>
-alert('Course already bought!');
-location.href='mycourses.php';
-</script>
-        <?
-
-    }else{
+    
 
     if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
@@ -129,7 +116,7 @@ location.href='mycourses.php';
 
 <?php
 
-}
-}
+                                                                                                        }
+
 
 ?>

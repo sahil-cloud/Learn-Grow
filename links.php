@@ -27,12 +27,13 @@
 </head>
 
 <body>
-    <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+    <!-- <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
-    <script src="bootstrap/js/owl.carousel.min.js"></script>
-    <script src="bootstrap/js/car.js">
+    <script type="text/javascript" src="bootstrap/js/owl.carousel.min.js"></script>
+    <script type="text /javascript" src="bootstrap/js/car.js">
 
     </script>
 

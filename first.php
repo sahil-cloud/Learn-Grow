@@ -12,6 +12,8 @@ $_SESSION['contactnavbar'] = "not-active";
 $_SESSION['mycoursenavbar'] = "not-active";
 $_SESSION['paymentnavbar'] = "not-active";
 $_SESSION['feedbacknavbar'] = "not-active";
+$_SESSION['feedbacksnav'] = "not-active";
+
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +23,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <!-- <title>Learn$Grow</title> -->
     <link rel="stylesheet" href="css/loginform.css">
     <link rel="icon" href="images/titleicon.png">
@@ -59,16 +62,16 @@ $_SESSION['feedbacknavbar'] = "not-active";
 
     ?>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: white; box-shadow: 5px 5px 5px lightgray;">
-            <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>Learn$Grow |</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>Learn$Grow |</strong><span class="inline-flex"> <img class="" src="favicon-32x32.png"></img></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item -ml-5">
+                    <!-- <li class="nav-item -ml-5">
                         <a href="index.php"> <img class="nav-link" src="favicon-32x32.png"></img></a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" <?php if ($_SESSION['homenavbar'] == "active") { ?> style="color:blue !important;" <?php } ?> href="index.php">Home</a>
                     </li>
@@ -84,6 +87,9 @@ $_SESSION['feedbacknavbar'] = "not-active";
                     <li class="nav-item">
                         <a class="nav-link" <?php if ($_SESSION['contactnavbar'] == "active") { ?> style="color:blue !important;" <?php } ?> href="contact.php">Contact Us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" <?php if ($_SESSION['feedbacksnav'] == "active") { ?> style="color:blue !important;" <?php } ?> href="feedbacks.php">Feedbacks</a>
+                    </li>
                     </li>
                     <?php
                     if (isset($_SESSION['email']) && isset($_SESSION['status'])) {
@@ -95,7 +101,7 @@ $_SESSION['feedbacknavbar'] = "not-active";
                             <a class="nav-link" href="paymentdetails.php" <?php if ($_SESSION['paymentnavbar'] == "active") { ?> style="color:blue !important;" <?php } ?>>Payment Detail</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="feedbackstudent.php" <?php if ($_SESSION['feedbacknavbar'] == "active") { ?> style="color:blue !important;" <?php } ?>>Feedback</a>
+                            <a class="nav-link" href="feedbackstudent.php" <?php if ($_SESSION['feedbacknavbar'] == "active") { ?> style="color:blue !important;" <?php } ?>>My Feedback</a>
                         </li>
                     <?php  }
                     ?>
@@ -123,6 +129,10 @@ $_SESSION['feedbacknavbar'] = "not-active";
                 </form>
             </div>
         </nav>
+
+
+
+
 
     <?php
     }
@@ -354,7 +364,38 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <?php
     }
     ?>
-    </div>
+
+
+    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="..." alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="..." alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="..." alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> -->
+
+
+
+    <!-- </div> -->
     <?php
     // footer
     function footer()
@@ -439,7 +480,9 @@ $_SESSION['feedbacknavbar'] = "not-active";
             <div class="bg-gray-100">
                 <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
                     <a class="navbar-brand" href="index.php" style="color: blue; font-family: 'Playfair Display', serif;"><strong>© 2021 Learn$Grow |</strong></a>
-                  <a href="developerinfo.php"> <p class="navbar-brand leading-relaxed">About the Developers💻</p></a> 
+                    <a href="developerinfo.php">
+                        <p class="navbar-brand leading-relaxed">About the Developers💻</p>
+                    </a>
 
                     <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                         <a class="text-gray-500">

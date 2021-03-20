@@ -3,7 +3,7 @@ include('dbcon.php');
 include('first.php');
 // login page
 // include('login.php');
-include('links.php');
+// include('links.php');
 // session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -27,10 +27,7 @@ use PHPMailer\PHPMailer\PHPMailer;
     <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-
-    <!-- Default Theme -->
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+   
 
     <style>
     </style>
@@ -48,16 +45,9 @@ use PHPMailer\PHPMailer\PHPMailer;
     Ring();
     quiz();
     qna();
-    feed();
+    // feed();
     footer();
     ?>
-
-    <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-
-    <script src="bootstrap/js/owl.carousel.min.js"></script>
-    <script src="bootstrap/js/car.js"></script>
 </body>
 
 </html>

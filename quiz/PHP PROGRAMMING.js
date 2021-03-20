@@ -8,7 +8,7 @@ const quizDB = [
         ans: "ans1"
     },
     {
-        question: "Q2: Which of the below symbols is a newline character?
+        question: "Q2: Which of the below symbols is a newline character?",
         a: "\r",
         b: "\n",
         c: "/n",

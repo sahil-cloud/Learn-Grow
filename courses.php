@@ -1,5 +1,5 @@
 <?php
-include('links.php');
+// include('links.php');
 include('dbcon.php');
 // include('login.php');
 include('first.php');
@@ -14,6 +14,8 @@ $_SESSION['coursenavbar'] = 'active';
 $_SESSION['mycoursenavbar'] = "not-active";
 $_SESSION['paymentnavbar'] = "not-active";
 $_SESSION['feedbacknavbar'] = "not-active";
+$_SESSION['feedbacksnav'] = "not-active";
+
 
 
 
@@ -58,106 +60,41 @@ $_SESSION['feedbacknavbar'] = "not-active";
                 </form>
                 <!-- </p> -->
             </div>
-            <!-- <div class="flex flex-wrap -m-4">
-                <div class="xl:w-1/4 md:w-1/2 p-4">
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                        <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content">
-                        <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
-                        <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Chichen Itza</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                    </div>
+
+        </div>
+    </section>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-2 mx-auto">
+            <div class="flex flex-wrap w-full mb-2">
+                <div class="lg:w-2/3 w-full mb-2 lg:mb-0">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Categories</h1>
+                    <div class="h-1 w-20 bg-indigo-500 rounded"></div>
                 </div>
-                <div class="xl:w-1/4 md:w-1/2 p-4">
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                        <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/721x401" alt="content">
-                        <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
-                        <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Colosseum Roma</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                    </div>
-                </div>
-                <div class="xl:w-1/4 md:w-1/2 p-4">
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                        <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/722x402" alt="content">
-                        <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
-                        <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Great Pyramid of Giza</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                    </div>
-                </div>
-                <div class="xl:w-1/4 md:w-1/2 p-4">
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                        <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/723x403" alt="content">
-                        <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
-                        <h2 class="text-lg text-gray-900 font-medium title-font mb-4">San Francisco</h2>
-                        <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                    </div>
-                </div>
-            </div> -->
+            </div>
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-    <!-- Popular courses -->
-    <!-- <section class="text-gray-600 body-font">
-        <div class="container px-5 py-12 mx-auto">
-            <div class="flex flex-col text-center w-full mb-2 mt-5">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest" style="color: navy;font-family: 'Akaya Kanadaka', cursive;"><strong>Popular Courses
-                        <hr>
-                    </strong></h1>
-            </div>
-
-
-            <div class="container">
-                <div class="owl-carousel owl-theme mt-3 mb-2">
-
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                        </div>
-                    </div>
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                        </div>
-                    </div>
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                        </div>
-                    </div>
-                    <div class="item" style="width: 14rem; ">
-                        <img class="card-img-top mt-2" src="images/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Alex Hales</strong></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                        </div>
-                    </div>
-
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-2 mx-auto">
+            <div class="flex flex-wrap -m-4 text-center">
+                <div class="p-4 sm:w-1/4 w-1/2">
+                    <a href="catcourses.php?category=computer" class="btn btn-info"><strong>Computer Science Courses</strong></a>
+                </div>
+                <div class="p-4 sm:w-1/4 w-1/2">
+                    <a href="catcourses.php?category=business" class="btn btn-info"><strong>Business Courses</strong></a>
 
                 </div>
+                <div class="p-4 sm:w-1/4 w-1/2">
+                    <a href="catcourses.php?category=cooking" class="btn btn-info"><strong>Cooking Courses</strong></a>
 
+                </div>
+                <div class="p-4 sm:w-1/4 w-1/2">
+                    <a href="catcourses.php?category=pd" class="btn btn-info"><strong>Personality Development Courses</strong></a>
+
+                </div>
             </div>
         </div>
-    </section> -->
-
-
-
+    </section>
 
 
 
@@ -167,63 +104,65 @@ $_SESSION['feedbacknavbar'] = "not-active";
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-2 mx-auto">
             <div class="flex flex-col text-center w-full mb-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Computer Science Courses
+                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>All Courses
                     </strong></h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
-                    “It’s hardware that makes a machine fast. It’s software that makes a fast machine slow.”
-                </p>
+               
             </div>
 
 
-            <div class="container">
-                <div class="owl-carousel owl-theme mt-3 mb-2">
-
-                    <?php
-                    $sql = "SELECT * FROM courses where category = 'computer' ";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $course_id = $row['courseid'];
-                    ?>
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-8 mx-auto">
+                    <div class="flex flex-wrap -m-4">
 
 
-                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
-                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
-                                    <p class="card-text"><?php echo $row['description'] ?></p>
-                                    <hr>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-6">
+                        <?php
+                        $sql = "SELECT * FROM courses";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $course_id = $row['courseid'];
+                        ?>
 
 
-                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
+                                <div class="lg:w-1/4 md:w-1/2 p-4 w-full mt-2" style="box-shadow: 8px 8px 8px 8px lightgray;">
+                                    <a class="block relative h-48 rounded overflow-hidden">
+                                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="<?php echo $row['image'] ?>">
+                                    </a>
+                                    <div class="mt-4">
+                                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"><strong><?php echo $row['name'];  ?> </strong></h3>
+                                        <h2 class="text-gray-900 title-font text-lg font-medium"><?php echo $row['description'] ?></h2>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-6">
+
+
+                                                    <p class="text-md mt-3"><strong>Rs.<?php echo $row['rate']  ?></strong></p>
+                                                </div>
+                                                <div class="col-4 offset-2">
+
+                                                    <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-info btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
+                                                    </a>
+
+                                                </div>
+
                                             </div>
-                                            <div class="col-4 offset-2">
-
-                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-info btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
-                                                </a>
-
-                                            </div>
-
                                         </div>
                                     </div>
-
                                 </div>
-                            </div>
-                    <?php
+
+                        <?php
+                            }
                         }
-                    }
-                    ?>
+                        ?>
 
 
 
-
+                    </div>
                 </div>
+            </section>
 
-            </div>
+
         </div>
     </section>
 
@@ -231,202 +170,18 @@ $_SESSION['feedbacknavbar'] = "not-active";
 
 
 
-    <!-- Business courses -->
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-4 mx-auto">
-            <div class="flex flex-col text-center w-full mb-2 mt-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Business Courses
-
-                    </strong></h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
-                    "Business opportunities are like buses, there's always another one coming.”
-                </p>
-            </div>
-
-            <div class="container">
-                <div class="owl-carousel owl-theme mt-3 mb-2">
-
-                    <?php
-                    $sql = "SELECT * FROM courses where category = 'business' ";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $course_id = $row['courseid'];
-                    ?>
-
-
-                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
-                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
-                                    <p class="card-text"><?php echo $row['description'] ?></p>
-                                    <hr>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-6">
-
-
-                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
-                                            </div>
-                                            <div class="col-4 offset-2">
-
-                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Cooking Courses -->
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-4 mx-auto">
-            <div class="flex flex-col text-center w-full mb-2 mt-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Cooking Courses
-
-                    </strong></h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
-                    "Business opportunities are like buses, there's always another one coming.”
-                </p>
-            </div>
-
-            <div class="container">
-                <div class="owl-carousel owl-theme mt-3 mb-2">
-
-                    <?php
-                    $sql = "SELECT * FROM courses where category = 'cooking' ";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $course_id = $row['courseid'];
-                    ?>
-
-
-                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
-                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
-                                    <p class="card-text"><?php echo $row['description'] ?></p>
-                                    <hr>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-6">
-
-
-                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
-                                            </div>
-                                            <div class="col-4 offset-2">
-                                                <a href="coursedetails.php?course_id='<?php echo $course_id; ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Personality development Courses -->
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-4 mx-auto">
-            <div class="flex flex-col text-center w-full mb-2 mt-2">
-                <h1 class="text-3xl font-medium title-font mb-2 text-gray-900 tracking-widest"><strong>Personality
-                        Development Courses
-                        <!-- <hr> -->
-
-                    </strong></h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base m-3">
-                    "Business opportunities are like buses, there's always another one coming.”
-                </p>
-            </div>
-
-            <div class="container">
-                <div class="owl-carousel owl-theme mt-3 mb-2">
-
-                    <?php
-                    $sql = "SELECT * FROM courses where category = 'personality' ";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $course_id = $row['courseid'];
-                    ?>
-
-
-                            <div class="item card bg-blue-100" style="width: 16rem; border-radius: 1rem; box-shadow: 8px 8px 8px lightsteelblue;">
-                                <img class="card-img-top mt-2" src="<?php echo $row['image'] ?>" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title"><strong><?php echo $row['name'];  ?> </strong></h5>
-                                    <p class="card-text"><?php echo $row['description'] ?></p>
-                                    <hr>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-6">
-
-
-                                                <p class="text-md mt-3">Rs.<?php echo $row['rate']  ?></p>
-                                            </div>
-                                            <div class="col-4 offset-2">
-
-                                                <a href="coursedetails.php?course_id='<?php echo $row['courseid'] ?>'" class="btn btn-primary btn-md mt-2" style="border-radius: 12px;"><strong>Enroll</strong>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
-
-            </div>
-        </div>
-    </section>
+  
 
     <?php
     footer();
     ?>
 
-    <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-
-    <script src="bootstrap/js/owl.carousel.min.js"></script>
-    <script src="bootstrap/js/car.js"></script>
+    
+    <script>
+        // $(document).ready(function() {
+        //     $('.owl-carousel').owlCarousel();
+        // });
+    </script>
     <script>
         let search = document.getElementById('search');
         search.addEventListener("input", function() {

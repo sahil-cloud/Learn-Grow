@@ -11,6 +11,7 @@ $_SESSION['coursenavbar'] = 'not-active';
 $_SESSION['mycoursenavbar'] = "not-active";
 $_SESSION['paymentnavbar'] = "not-active";
 $_SESSION['feedbacknavbar'] = "not-active";
+
 $email = $_SESSION['email'];
 
 
@@ -32,6 +33,14 @@ if (isset($_REQUEST['upaddress'])) {
 }
 
 if (isset($_REQUEST['upimage'])) {
+
+    $sql = "SELECT * from register where email = '$email' ";
+    $res = $conn->query($sql);
+    if($res->num_rows > 0){
+        $res1 = $res->fetch_assoc();
+        $previmg = $res1['image'];
+    }
+
     $img = $_FILES['image'];
 
     $imgname = $img['name'];
@@ -58,7 +67,8 @@ if (isset($_REQUEST['upimage'])) {
 
 
         if ($r1) {
-            $insert = true;
+            // $insert = true;
+            unlink($previmg);
         ?>
             <script>
                 location.href = 'studentprofile.php';
@@ -191,9 +201,7 @@ if (isset($_REQUEST['uppassword'])) {
         footer();
     }
     ?>
-    <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

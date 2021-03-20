@@ -11,9 +11,12 @@ $_SESSION['coursenavbar'] = 'not-active';
 $_SESSION['mycoursenavbar'] = "not-active";
 $_SESSION['paymentnavbar'] = "not-active";
 $_SESSION['feedbacknavbar'] = "active";
+$_SESSION['feedbacksnav'] = "not-active";
+
 
 $email = $_SESSION['email'];
 $name = $_SESSION['name'];
+// echo $name;
 
 if (isset($_REQUEST['upfeed'])) {
     $feed = $_REQUEST['feedback'];
@@ -34,7 +37,7 @@ if (isset($_REQUEST['upfeed'])) {
 if (isset($_GET['delete'])) {
     $sno = $_GET['delete'];
     $delete = true;
-    $sql = "DELETE FROM feedback WHERE email = '$sno' ";
+    $sql = "DELETE FROM feedback WHERE sno = '$sno' ";
     // $result = mysqli_query($conn, $sql);
     $result = $conn->query($sql);
 
@@ -123,7 +126,7 @@ if (isset($_GET['delete'])) {
                         <tr>
                             <th scope="row"><?php echo $a; ?></th>
                             <td><?php echo $courseorder['feed']; ?></td>
-                            <td> <button class='delete btn btn-sm btn-primary' id=<?php echo $courseorder['email']; ?>>Delete</button> </td>
+                            <td> <a class='delete btn btn-sm btn-primary' href="feedbackstudent.php?delete=<?php echo $courseorder['sno']; ?>" id="<?php echo $courseorder['sno']; ?>">Delete</a> </td>
 
 
                         </tr>
@@ -168,9 +171,7 @@ if (isset($_GET['delete'])) {
             })
         })
     </script>
-    <script src="bootstrap/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+  
 </body>
 
 </html>

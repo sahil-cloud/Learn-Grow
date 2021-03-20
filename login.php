@@ -1,7 +1,7 @@
 <?php
-// session_start();
-include('links.php');
 include('dbcon.php');
+// session_start();
+// include('links.php');
 // include('login.php');
 include('first.php');
 

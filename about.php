@@ -1,5 +1,5 @@
 <?php
-include('links.php');
+// include('links.php');
 include('first.php');
 // include('login.php');
 
@@ -9,6 +9,7 @@ $_SESSION['contactnavbar'] = "not-active";
 $_SESSION['aboutnavbar'] = "active";
 $_SESSION['mycoursenavbar'] = "not-active";
 $_SESSION['paymentnavbar'] = "not-active";
+$_SESSION['feedbacksnav'] = "not-active";
 $_SESSION['feedbacknavbar'] = "not-active";
 
 ?>

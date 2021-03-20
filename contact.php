@@ -1,7 +1,7 @@
 <?php
-include('links.php');
-include('first.php');
+// include('links.php');
 include('dbcon.php');
+include('first.php');
 // include('login.php');
 
 $_SESSION['homenavbar'] = 'not-active';
@@ -11,6 +11,8 @@ $_SESSION['coursenavbar'] = 'not-active';
     $_SESSION['mycoursenavbar'] = "not-active";
     $_SESSION['paymentnavbar'] = "not-active";
     $_SESSION['feedbacknavbar'] = "not-active";
+    $_SESSION['feedbacksnav'] = "not-active";
+
 
 if (isset($_REQUEST['contact'])){
     $name = $_REQUEST['name'];
